@@ -50,7 +50,7 @@ async def ytdl(link):
         return 0, stderr.decode()
 
 
-@Client.on_message(command(["تشغيل", "شغل", f"play@{BOT_USERNAME}"]) & other_filters)
+@Client.on_message(command(["تشغيل","شغل", f"play@{BOT_USERNAME}"]) & other_filters)
 async def play(c: Client, m: Message):
     do = requests.get(f"https://api.telegram.org/bot{BOT_TOKEN}/getChatMember?chat_id=@{UPDATES_CHANNEL}&user_id={m.from_user.id}").text
     if do.count("left") or do.count("Bad Request: user not found"):
